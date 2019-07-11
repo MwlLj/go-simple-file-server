@@ -49,5 +49,5 @@ func FileHandler(w http.ResponseWriter, r *http.Request, userName *string, userP
 		fmt.Println("error")
 		return
 	}
-	http.ServeFile(w, r, "/")
+	http.ServeFile(w, r, r.URL.Path)
 }
