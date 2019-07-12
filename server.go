@@ -26,6 +26,9 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		handlers.FileHandler(w, r, userName, userPwd)
 	})
+	http.HandleFunc("/file/upload", func(w http.ResponseWriter, r *http.Request) {
+		handlers.UploadHandler(w, r, userName, userPwd)
+	})
 	err := http.ListenAndServe(":"+*port, nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
